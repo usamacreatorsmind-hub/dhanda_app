@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1290657485",
+    "project_id": "dhanda-app-c873f",
+    "storage_bucket": "dhanda-app-c873f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1290657485:android:4056e914837bac9c3d9384",
+        "android_client_info": {
+          "package_name": "com.app.dhanda_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB67Oc6AC1hinLiMtJF_HdH5rrZ49sghaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
