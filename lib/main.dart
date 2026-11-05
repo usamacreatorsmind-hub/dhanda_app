@@ -15,7 +15,7 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
   } catch (e) {
-    debugPrint('Firebase init: $e');
+    debugPrint('Firebase init $e');
   }
 
   runApp(const DhandaApp());
