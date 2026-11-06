@@ -25,7 +25,7 @@ class _BusinessSetupView extends StatefulWidget {
 
 class _BusinessSetupViewState extends State<_BusinessSetupView> {
   final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _cityController = TextEditingController(text: 'Noida');
+  final TextEditingController _cityController = TextEditingController();
   final TextEditingController _itemController = TextEditingController();
 
   final List<String> _suggestedItems = [

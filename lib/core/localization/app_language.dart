@@ -89,6 +89,10 @@ class AppStrings {
 
   // Dashboard & Bottom Nav
   String get navHome => isHindi ? 'होम' : 'Home';
+  String get navReviewReplies => isHindi ? 'रिव्यू रिप्लाई' : 'Review Replies';
+  String get navAiPost => isHindi ? 'AI पोस्ट' : 'AI Post';
+  String get navGooglePost => isHindi ? 'गूगल पोस्ट' : 'Google Post';
+  String get navGoogleMedia => isHindi ? 'गूगल मीडिया' : 'Google Media';
   String get navPosts => isHindi ? 'पोस्ट्स' : 'Posts';
   String get navBusiness => isHindi ? 'प्रोफ़ाइल' : 'Profile';
   String get navSettings => isHindi ? 'सेटिंग्स' : 'Settings';

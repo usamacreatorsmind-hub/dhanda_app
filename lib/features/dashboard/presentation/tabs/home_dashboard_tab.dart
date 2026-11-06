@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/localization/app_language.dart';
+import '../widgets/app_drawer.dart';
 
 class HomeDashboardTab extends StatelessWidget {
   const HomeDashboardTab({super.key});
@@ -13,6 +14,7 @@ class HomeDashboardTab extends StatelessWidget {
 
         return Scaffold(
           backgroundColor: const Color(0xFFF8F9FA),
+          drawer: const AppDrawer(),
           appBar: AppBar(
             elevation: 0,
             title: Row(
@@ -179,6 +181,46 @@ class HomeDashboardTab extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(height: 24),
+                // Social Media Connect Section
+                Text(
+                  langState.isHindi
+                      ? 'सोशल मीडिया पर एक्टिव रहें'
+                      : 'Stay active on Social Media',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF2D3748),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  langState.isHindi
+                      ? 'मार्केटिंग ऑटोमेट करने के लिए प्रोफाइल कनेक्ट करें'
+                      : 'Connect profiles to automate marketing',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey.shade600,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                _SocialConnectTile(
+                  iconAsset: 'assets/images/fb.png',
+                  title: 'Facebook',
+                  subtitle: langState.isHindi ? 'कनेक्टेड नहीं है' : 'Not connected',
+                  onConnect: () {
+                    // API integration will be done in future
+                  },
+                ),
+                const SizedBox(height: 12),
+                _SocialConnectTile(
+                  iconAsset: 'assets/images/instagram.png',
+                  title: 'Instagram',
+                  subtitle: langState.isHindi ? 'कनेक्टेड नहीं है' : 'Not connected',
+                  onConnect: () {
+                    // API integration will be done in future
+                  },
+                ),
               ],
             ),
           ),
@@ -240,3 +282,119 @@ class _QuickActionCard extends StatelessWidget {
     );
   }
 }
+
+class _SocialConnectTile extends StatelessWidget {
+  final String iconAsset;
+  final String title;
+  final String subtitle;
+  final VoidCallback onConnect;
+
+  const _SocialConnectTile({
+    required this.iconAsset,
+    required this.title,
+    required this.subtitle,
+    required this.onConnect,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xFFEFF2F5), width: 1),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.02),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(16),
+        child: InkWell(
+          onTap: onConnect,
+          borderRadius: BorderRadius.circular(16),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Row(
+              children: [
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  child: Image.asset(
+                    iconAsset,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const CircleAvatar(
+                        backgroundColor: Color(0xFFF1F5F9),
+                        child: Icon(Icons.share, color: Colors.blue),
+                      );
+                    },
+                  ),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1E293B),
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        subtitle,
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.grey.shade500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: onConnect,
+                  borderRadius: BorderRadius.circular(8),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: const [
+                        Text(
+                          'Connect',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xFFEC5656),
+                          ),
+                        ),
+                        SizedBox(width: 2),
+                        Icon(
+                          Icons.chevron_right_rounded,
+                          size: 18,
+                          color: Color(0xFFEC5656),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
