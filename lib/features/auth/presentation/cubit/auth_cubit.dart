@@ -6,7 +6,7 @@ import '../../domain/models/user_model.dart';
 import 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  late final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   static const String _prefLoggedIn = 'is_logged_in';
   static const String _prefUserUid = 'user_uid';

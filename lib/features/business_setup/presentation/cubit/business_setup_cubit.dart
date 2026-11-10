@@ -194,7 +194,30 @@ class BusinessSetupCubit extends Cubit<BusinessSetupState> {
       // 1. Save business document to Firestore 'businesses' collection
       await docRef.set(business.toMap());
 
-      // 2. Update user document in Firestore 'users' collection with selectedBusinessId
+      // 2. Sync to 'business_profiles/{uid}' so Dashboard, Preferences & Manage GMB Profile are immediately populated
+      try {
+        await _firestore.collection('business_profiles').doc(uid).set({
+          'userId': uid,
+          'businessName': business.name,
+          'primaryPhone': business.phone,
+          'communicationPhone': business.phone,
+          'primaryCategory': business.category,
+          'city': business.city,
+          'address': business.googleBusinessAddress ?? business.city,
+          'website': business.website ?? '',
+          'topSellingItems': business.topSellingItems,
+          'googleBusinessRating': business.googleBusinessRating ?? 4.5,
+          'regularHours': 'Mon - Sun: 9:30 AM - 8:30 PM',
+          'aiReplySalutation': 'Thank you for visiting ${business.name}!',
+          'autoReplyEnabled': true,
+          'autoPostEnabled': true,
+          'updatedAt': FieldValue.serverTimestamp(),
+        }, SetOptions(merge: true));
+      } catch (e) {
+        debugPrint('Error syncing business_profiles doc: $e');
+      }
+
+      // 3. Update user document in Firestore 'users' collection with selectedBusinessId
       try {
         await _firestore.collection('users').doc(uid).set({
           'selectedBusinessId': docRef.id,

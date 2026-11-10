@@ -57,7 +57,7 @@ class AppStrings {
   String get onboardingSub1 => isHindi ? 'सोशल मीडिया पोस्ट्स, बैनर्स और पोस्टर्स आसानी से बनाएं' : 'Create social media posts, banners, and posters with ease';
 
   String get onboardingTitle2 => isHindi ? 'AI से ऑटोमैटिक कंटेंट' : 'AI Powered Content';
-  String get onboardingSub2 => isHindi ? 'Gemini AI से आकर्षक कैप्शंस और पोस्ट आइडियाज़ पाएं' : 'Get engaging captions and post ideas using Gemini AI';
+  String get onboardingSub2 => isHindi ? 'AI से आकर्षक कैप्शंस और पोस्ट आइडियाज़ पाएं' : 'Get engaging captions and post ideas using AI';
 
   String get onboardingTitle3 => isHindi ? 'एक क्लिक में शेयर करें' : 'Share in 1-Click';
   String get onboardingSub3 => isHindi ? 'WhatsApp, Instagram aur Facebook par turant share karein' : 'Share instantly on WhatsApp, Instagram, and Facebook';
@@ -73,7 +73,8 @@ class AppStrings {
   String get enterPhone => isHindi ? 'फ़ोन नंबर दर्ज करें' : 'Enter Phone Number';
   String get sendOTP => isHindi ? 'OTP भेजें' : 'Send OTP';
   String get verifyOTP => isHindi ? 'OTP सत्यापित करें' : 'Verify OTP';
-  String get enter6DigitOTP => isHindi ? '6 अंकों का OTP दर्ज करें' : 'Enter 6-digit OTP';
+  String get enter4DigitOTP => isHindi ? '4 अंकों का OTP दर्ज करें' : 'Enter 4-digit OTP';
+  String get enter6DigitOTP => enter4DigitOTP;
   String get googleSignIn => isHindi ? 'गूगल से साइन इन करें' : 'Sign in with Google';
 
   // Business Setup

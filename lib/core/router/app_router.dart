@@ -7,12 +7,14 @@ import '../../features/dashboard/presentation/screens/dashboard_shell_screen.dar
 import '../../features/preferences/presentation/screens/preferences_screen.dart';
 import '../../features/settings/presentation/screens/settings_screen.dart';
 import '../../features/business_profile/presentation/screens/manage_business_profile_screen.dart';
+import '../../features/business_profile/presentation/screens/select_profile_screen.dart';
 
 class AppRouter {
   static const String splash = '/splash';
   static const String onboarding = '/onboarding';
   static const String auth = '/auth';
   static const String businessSetup = '/business-setup';
+  static const String selectProfile = '/select-profile';
   static const String dashboard = '/dashboard';
   static const String preferences = '/preferences';
   static const String settings = '/settings';
@@ -36,6 +38,10 @@ class AppRouter {
       GoRoute(
         path: businessSetup,
         builder: (context, state) => const BusinessSetupScreen(),
+      ),
+      GoRoute(
+        path: selectProfile,
+        builder: (context, state) => const SelectProfileScreen(),
       ),
       GoRoute(
         path: dashboard,
